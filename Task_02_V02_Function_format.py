@@ -20,15 +20,14 @@ def count (Room_Door_State,n):
         else:
             close_count = close_count + 1
     return (open_count, close_count)
-
+def cal (n):
+    Room_Door_State = initialize(n) 
+    Room_Door_State = run(Room_Door_State,n)
+    open_count, close_count = count (Room_Door_State,n)
+    print ('Number of doors open=', open_count)        
+    print ('Number of doors closed=', close_count) 
+    
+    
 #main 
-
-n = int(input("Please enter n"))
-Room_Door_State = initialize(n) 
-Room_Door_State = run(Room_Door_State,n)
-open_count, close_count = count (Room_Door_State,n)
-print ('Number of doors open=', open_count)        
-print ('Number of doors closed=', close_count) 
-    
-    
-    
+n = int(input("Please enter number of hotel rooms"))
+cal (n)
