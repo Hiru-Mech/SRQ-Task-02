@@ -1,22 +1,20 @@
-
 n = int(input("Please enter n"))
-Room_Door_State = {i: 'open' for i in range(1, n + 1)} #dictionary for room numbers and door state
+Room_Door_State = {i: 'close' for i in range(1, n + 1)} #dictionary for room numbers and door state
 print(Room_Door_State)
 open_count = 0
 close_count = 0
-for j in range (2 , n):
-    if (j%2 ==0):
-        Room_Door_State[j] = 'close'
-    if (j%3 ==0):
-        Room_Door_State[j] = 'close'
-    if (j%4==0):
-        if (Room_Door_State[j] == 'open'):
-            Room_Door_State[j] = 'close'
-        if (Room_Door_State[j] == 'close'):
-            Room_Door_State[j] = 'open'
+
+for x in range (1 , n+1):
+    for j in range (x , n+1):
+        if (j%x ==0):
+            if (Room_Door_State[j] == 'open'):
+                Room_Door_State[j] = 'close'
+            else:
+                Room_Door_State[j] = 'open'
+    print (x, Room_Door_State)
 print (Room_Door_State)
 
-for k in range (1,n):
+for k in range (1,n+1):
     if (Room_Door_State[k] == 'open'):
         open_count = open_count + 1
     else:
@@ -24,5 +22,4 @@ for k in range (1,n):
         
 print ('Number of doors open=', open_count)        
 print ('Number of doors closed=', close_count)            
-        
         
